@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Makin' a scene</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.10/esri/css/main.css">
+    <style>
+      h1 {text-align:center;}
+      #myScene {
+        padding: 0;
+        margin: 0 auto;
+        height: 500px;
+        width: 800px;
+      }
+    </style>
+    <script src="https://js.arcgis.com/4.10/"></script>
+    <script>
+      require([
+        "esri/views/SceneView",
+        "esri/WebScene"
+      ], function(SceneView, WebScene) {
+        var scene = new WebScene({
+          portalItem: {
+            id: "ed17fab3585a4aac8033e7e5631f342c"
+          }
+        });
+
+        /************************************************************
+        * Set the WebScene instance to the map property in a SceneView.
+        ************************************************************/
+        var view = new SceneView({
+          map: scene,
+          container: "myScene"
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Makin' a scene with JavaScript!</h1>
+    <div id="myScene"></div>
+  </body>
+</html>
